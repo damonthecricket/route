@@ -1,23 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Routes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3vN-zN-SLe">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Yfm-f7-lLF"/>
+                                    <outletCollection property="gestureRecognizers" destination="cm7-Kh-vo5" appends="YES" id="p6m-KP-l34"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLG-Qu-qdV">
+                                <rect key="frame" x="313" y="30" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="ZKI-gn-kDx"/>
+                                    <constraint firstAttribute="height" constant="30" id="kTH-ZF-Hqz"/>
+                                </constraints>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XnZ-58-uFT"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KU3-MA-Ua6">
+                                <rect key="frame" x="313" y="30" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RTn-3e-0wt"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="UIT-kU-9qK"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeButtonTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UsQ-4W-j1b"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3vN-zN-SLe" secondAttribute="bottom" id="26V-Ya-u36"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3vN-zN-SLe" secondAttribute="trailing" id="3d2-eL-jfv"/>
+                            <constraint firstItem="KU3-MA-Ua6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Cxb-xb-7yQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mLG-Qu-qdV" secondAttribute="trailing" constant="16" id="Mws-Wc-JLJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KU3-MA-Ua6" secondAttribute="trailing" constant="16" id="Nqy-ri-p4f"/>
+                            <constraint firstItem="3vN-zN-SLe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="X0d-AR-1sv"/>
+                            <constraint firstItem="KU3-MA-Ua6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="edK-BK-BAw"/>
+                            <constraint firstItem="mLG-Qu-qdV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="hQJ-h5-krk"/>
+                            <constraint firstItem="mLG-Qu-qdV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="mvs-Jm-GBH"/>
+                            <constraint firstItem="3vN-zN-SLe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yPG-lC-U9G"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="mLG-Qu-qdV" id="x0A-Eb-KFq"/>
+                        <outlet property="closeButton" destination="KU3-MA-Ua6" id="cc9-Kf-iMn"/>
+                        <outlet property="mapView" destination="3vN-zN-SLe" id="Aj9-TL-QOy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cm7-Kh-vo5">
+                    <connections>
+                        <action selector="tapGestureRecognizerWithSender:" destination="BYZ-38-t0r" id="6Ku-R0-zj8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
